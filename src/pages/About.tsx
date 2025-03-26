@@ -1,5 +1,5 @@
-import React from 'react';
 import { Globe, Users, Award, TrendingUp } from 'lucide-react';
+import CountUp from 'react-countup';
 
 export const About = () => {
   return (
@@ -9,7 +9,7 @@ export const About = () => {
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: 'url(../public/Images/aboutus_hero_section.jpg)',
+            backgroundImage: 'url(../Images/aboutus_hero_section.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -28,14 +28,16 @@ export const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             {[
-              { icon: <Globe className="h-8 w-8 mx-auto text-primary-600" />, stat: '15+', label: 'States Served' },
-              { icon: <Users className="h-8 w-8 mx-auto text-primary-600" />, stat: '50,000+', label: 'Happy Farmers' },
-              { icon: <Award className="h-8 w-8 mx-auto text-primary-600" />, stat: '15+', label: 'Years Experience' },
-              { icon: <TrendingUp className="h-8 w-8 mx-auto text-primary-600" />, stat: '50+', label: 'Products' }
+              { icon: <Globe className="h-8 w-8 mx-auto text-primary-600" />, stat: 15, suffix: '+', label: 'States Served' },
+              { icon: <Users className="h-8 w-8 mx-auto text-primary-600" />, stat: 50000, suffix: '+', label: 'Happy Farmers' },
+              { icon: <Award className="h-8 w-8 mx-auto text-primary-600" />, stat: 15, suffix: '+', label: 'Years Experience' },
+              { icon: <TrendingUp className="h-8 w-8 mx-auto text-primary-600" />, stat: 50, suffix: '+', label: 'Products' }
             ].map((item, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-md">
                 {item.icon}
-                <div className="mt-4 text-3xl font-bold text-primary-600">{item.stat}</div>
+                <div className="mt-4 text-3xl font-bold text-primary-600">
+                  <CountUp end={item.stat} duration={2} suffix={item.suffix} />
+                </div>
                 <div className="text-gray-600">{item.label}</div>
               </div>
             ))}

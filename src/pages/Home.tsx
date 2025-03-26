@@ -9,7 +9,7 @@ export const Home = () => {
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80)',
+            backgroundImage: 'url(../Images/group_1.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -22,9 +22,10 @@ export const Home = () => {
           <p className="text-xl mb-8 max-w-2xl">Leading manufacturer of organic bio-insecticides and agricultural products. Committed to sustainable farming practices and environmental protection.</p>
           <a
             href="/products"
-            className="inline-flex items-center bg-primary-600 text-white px-6 py-3 rounded-md hover:bg-primary-700"
+            className="inline-flex items-center bg-primary-600 text-white px-6 py-3 rounded-md hover:bg-primary-700 transition-all duration-300 group"
           >
-            Explore Products <ArrowRight className="ml-2" />
+            Explore Products 
+            <ArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
         </div>
       </section>
@@ -35,22 +36,28 @@ export const Home = () => {
           <h2 className="text-3xl font-bold text-center mb-12">Featured Products</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {products.map(product => (
-              <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-48 object-cover"
-                />
+              <div 
+                key={product.id} 
+                className="group bg-white rounded-lg shadow-md overflow-hidden transform transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg"
+              >
+                <div className="overflow-hidden">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                </div>
                 <div className="p-4">
                   <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
-                  <p className="text-gray-600 text-sm mb-4">{product.description}</p>
-                  <p className="text-gray-600 text-sm mb-4">{product.category}</p>
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">{product.description}</p>
+                  <p className="text-primary-600 text-sm font-medium mb-4">{product.category}</p>
                   <div className="flex justify-between items-center">
                     <a
                       href={`/products?category=${product.category}`}
-                      className="bg-primary-600 text-white px-4 py-2 rounded-md hover:bg-primary-700"
+                      className="inline-flex items-center bg-primary-600 text-white px-4 py-2 rounded-md hover:bg-primary-700 transition-colors duration-300 group/button"
                     >
                       Check Out Now
+                      <ArrowRight className="ml-2 w-4 h-4 opacity-0 group-hover:opacity-100 transition-all duration-300" />
                     </a>
                   </div>
                 </div>
@@ -67,24 +74,27 @@ export const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                icon: <Leaf className="h-12 w-12 text-primary-600" />,
+                icon: <Leaf className="h-12 w-12 text-primary-600 transition-colors duration-300 group-hover:text-primary-700" />,
                 title: '100% Organic',
                 description: 'All our products are made from natural ingredients, safe for crops and environment.'
               },
               {
-                icon: <Shield className="h-12 w-12 text-primary-600" />,
+                icon: <Shield className="h-12 w-12 text-primary-600 transition-colors duration-300 group-hover:text-primary-700" />,
                 title: 'Certified Quality',
                 description: 'Products tested and certified by leading agricultural institutions.'
               },
               {
-                icon: <Sprout className="h-12 w-12 text-primary-600" />,
+                icon: <Sprout className="h-12 w-12 text-primary-600 transition-colors duration-300 group-hover:text-primary-700" />,
                 title: 'Better Yield',
                 description: 'Proven to enhance crop yield while maintaining soil health.'
               }
             ].map((benefit, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-lg text-center">
+              <div 
+                key={index} 
+                className="group bg-white p-6 rounded-lg shadow-lg text-center transform transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl"
+              >
                 <div className="flex justify-center mb-4">{benefit.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
+                <h3 className="text-xl font-semibold mb-2 transition-colors duration-300 group-hover:text-primary-700">{benefit.title}</h3>
                 <p className="text-gray-600">{benefit.description}</p>
               </div>
             ))}
@@ -99,9 +109,10 @@ export const Home = () => {
           <p className="mb-8 text-lg">Join thousands of farmers who trust our organic solutions</p>
           <a
             href="/contact"
-            className="inline-flex items-center bg-white text-primary-800 px-6 py-3 rounded-md hover:bg-gray-100"
+            className="inline-flex items-center bg-white text-primary-800 px-6 py-3 rounded-md hover:bg-gray-100 transition-all duration-300 group"
           >
-            Contact Us <ArrowRight className="ml-2" />
+            Contact Us 
+            <ArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
         </div>
       </section>
